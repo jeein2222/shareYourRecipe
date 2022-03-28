@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+    <head>
+        {% include 'recipe/header.html' %}
+        <link rel="stylesheet" href="{% static 'accounts/css/signup.css' %}" media="screen">
+    </head>
+    
+    <body>  <!-- 꾸밈 -->
+        <div id="con">
+        <div id="login">
+        <div id="login_form"><!--로그인 폼-->
+            
+            <form method="post" class="post-form">
+                {% csrf_token %}
+                {% include "accounts/form_errors.html" %}
+                <h3 class="login" style="letter-spacing:-1px;">SIGN UP</h3>
+                <hr>
+                <div class="form-group">
+                    <p style="text-align: left; font-size:15px; color:#666">
+                        <label for="username">USERNAME</label>
+                    </p>
+                    <input type="text" class="form-control size" name="username" id="username"
+                           value="{{ form.username.value|default_if_none:'' }}" placeholder="아이디">
+                </div>
+            
+                <div class="form-group">
+                    <p style="text-align: left; font-size:15px; color:#666">
+                        <label for="password1">PASSWORD</label>
+                    </p>
+                    <input type="password" class="form-control size" name="password1" id="password1"
+                           value="{{ form.password1.value|default_if_none:'' }}" placeholder="영문,숫자 포함 8자 이상 비밀번호">
+                </div>
+            
+                <div class="form-group">
+                    <p style="text-align: left; font-size:15px; color:#666">
+                        <label for="password2">PASSWORD AGAIN</label>
+                    </p>
+                    <input type="password" class="form-control size" name="password2" id="password2"
+                           value="{{ form.password2.value|default_if_none:'' }}" placeholder="비밀번호 확인">
+                </div>
+            
+                <div class="form-group">
+                    <p style="text-align: left; font-size:15px; color:#666">
+                        <label for="email">E-MAIL</label>
+                    </p>
+                    <input type="text" class="form-control size" name="email" id="email"
+                           value="{{ form.email.value|default_if_none:'' }}" placeholder="이메일">
+                </div>
+                <br/>
+                <button type="submit" class="btn btn-outline-primary">SIGN UP</button>
+            </form>
+            <hr>
+            <p class="find"><span>회원이신가요?  <a href="{% url 'accounts:login' %}">Go to LOG-IN!</a></span></p>
+        </div>
+        </div>
+        </div>
+    </body>
+</html>

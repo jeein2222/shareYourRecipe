@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load static %}
+
+<!-- 홈 -->
+<html lang="en">
+    <head>
+        {% include 'recipe/header.html' %}
+    </head>
+    <body>
+        
+        <!--네비바-->
+        {% include 'recipe/navbar.html' %}
+            
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url({% static 'recipe/images/home-bg.jpg' %})">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Share your recipe!</h1>
+                            <span class="subheading">A Recipe Site</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    <div class="post-preview">
+                        <a href="/nutrient_list?q=입력">
+                            <h2 class="post-title">식품 검색하기</h2>
+							<p>
+								식품 영양 정보를 검색해 보세요!
+							</p>
+                        </a>
+            
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                    <!-- Post preview-->
+                    <div class="post-preview">
+                        <a href="/todayNews"><h2 class="post-title">오늘의 식품 news!</h2></a>
+						<p>
+							다양한 건강/식품 소식을 확인하세요!
+						</p>
+                        
+                    </div>
+                    <hr class="my-4" />
+                    <!-- Post preview-->
+                    <div class="post-preview">
+                        <a href="/recipe"><h2 class="post-title">레시피 둘러보기</h2></a>
+						<p>
+							레시피를 공유해보세요!
+						</p>
+                    
+                    </div>
+
+
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                    <!-- Pager-->
+                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="https://sw-1918-share-your-recipe.run.goorm.io/writeRecipe/">Post your Recipe!</a></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer-->
+        {% include 'recipe/footer.html' %}
+    </body>
+</html>

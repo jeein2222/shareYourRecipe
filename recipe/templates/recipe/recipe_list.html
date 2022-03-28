@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+
+<!-- 홈 -->
+<html lang="en">
+    <head>
+        {% include 'recipe/header.html' %}
+    </head>
+    <body>
+        <!--네비바-->
+        {% include 'recipe/navbar.html' %}
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url({% static 'recipe/images/post-bg.jpg' %})">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>레시피 둘러보기</h1>
+                            <span class="subheading">
+                                다양한 레시피를 확인하세요!
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+<!--                       <a href="#!"><img class="img-fluid" src="assets/img/post-sample-image.jpg" alt="..." /></a>-->
+                        <!-- 게시판 내용 -->
+                        
+                <!--레시피 갯수만큼 반복하기-->
+                {% for recipe in recipe_list %}
+                <!-- Blog post-->
+                <div class="card mb-4">
+                    <!-- <img class="card-img-top" src="https://picsum.photos/seed/{{ p.id }}/800/200" alt="random head image" /> -->
+                    <div class="card-body">
+                        <!--제목-->
+                        <h2 class="card-title h4">{{ recipe.title }}</h2>
+                        <!--내용-->
+                        <!--필터 적용 truncatewords:45 = 45개의 단어만 가져오기-->
+                        <p class="card-text">{{ recipe.content | truncatechars:45 }}</p>
+                        <!--해당 블로그 상세 페이지 버튼-->
+                        <button type="button" class="btn btn-outline-primary btn-sm">
+                            <a href="{{ recipe.get_absolute_url }}">Read more →</a>
+                        </button>
+                    </div>
+                    <div class="card-footer">
+                        <!--작성자-->
+                        <div class="small text-muted">by {{ recipe.author }}</div>
+                    </div>
+                </div>
+                {% endfor %} <!--게시글 없을 때 반복문 종료-->
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+            
+        <!-- Footer-->
+        {% include 'recipe/footer.html' %}
+    </body>
+</html>

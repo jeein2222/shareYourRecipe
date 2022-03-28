@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+
+<!-- 홈 -->
+<html lang="ko">
+    <head>
+        {% include 'recipe/header.html' %}
+    </head>
+
+    <body>
+        <!--네비바-->
+        {% include 'recipe/navbar.html' %}
+        
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url({% static 'recipe/images/post-bg.jpg' %})">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>레시피 둘러보기</h1>
+                            <span class="meta">
+                                다양한 레시피를 확인하세요!
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                      <!-- <a href="#!"><img class="img-fluid" src="{% static 'recipe/images/post-sample-image.jpg' %}" alt="..." /></a> -->
+                        <!-- 레시피 내용 -->
+						
+                    <article id="post_area">
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <!-- 제목 -->
+                            <h1 class="fw-bolder mb-1">{{ recipe.title }}</h1>
+                            <!--작성일-->
+                            <div class="text-muted fst-italic mb-2">Posted on {{ recipe.created_at | date:"20y-m-d h:m:s" }} by {{ recipe.author }}</div>
+                            <!-- Post categories-->
+                            <!-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a> -->
+                            <!-- <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a> -->
+                        </header>
+                        <!-- <img class="card-img-top" src="https://picsum.photos/seed/{{ post.id }}/800/200" alt="random head image" /> -->
+                        <!-- 내용-->
+                        <section class="mb-5">
+                            <p>{{ recipe.content }}</p>
+                        </section>
+                    
+                        <!--글 작성자만 삭제/수정 버튼 보이게-->
+                        {% if recipe.author == user %}
+                            <button type="button" class="btn btn-outline-warning" onclick="location.href='/recipeDelete/{{recipe.pk}}/'">삭제</button>
+                            <button type="button" class="btn btn-outline-info" onclick="location.href='/recipeUpdate/{{recipe.pk}}/'">수정</button>
+                        {% endif %}
+                        <button type="button" class="btn btn-outline-success" onclick="location.href='/recipe/'">목록</button>
+                        
+                    </article>
+						
+						
+                    </div>
+                </div>
+            </div>
+        </article>
+		
+        <!-- Footer-->
+        {% include 'recipe/footer.html' %}
+    </body>
+</html>

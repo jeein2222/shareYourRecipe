@@ -1,0 +1,26 @@
+<!-- 로그인/회원가입 실패 시 실패한 이유 피드백 -->
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}  <!-- 필드 오류를 출력: 값 누락, 필드 형식 불일치 -->
+            <div class="alert alert-danger">
+                {% if "This field" in error %}
+                    <strong>{{ field.label }} is required</strong>
+                {% else %}
+                    <strong>{{ error | escape }}</strong>
+                {% endif %}
+                <!--  {{ form.errors.as_data }}  {{ field.label }} is required-->
+            </div>
+        {% endfor %}
+    {% endfor %}
+                
+    {% for error in form.non_field_errors %}   <!-- 넌필드 오류를 출력: 로그인 실패 시 -->
+        <div class="alert alert-danger">
+                {% if "This field" in error %}
+                    <strong>{{ field.label }} is required</strong>
+                {% else %}
+                    <strong>{{ error | escape }}</strong>
+                {% endif %}
+                <!--  {{ form.errors.as_data }}  {{ field.label }} is required-->
+            </div>
+    {% endfor %}
+{% endif %} 

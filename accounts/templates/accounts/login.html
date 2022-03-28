@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+    <head>
+        {% include 'recipe/header.html' %}
+        <link rel="stylesheet" href="{% static 'accounts/css/login.css' %}" media="screen">
+    </head>
+    
+    <body>
+        <div id="con">
+        <div id="login">
+        <div id="login_form"><!--로그인 폼-->
+            
+            <form method="post" class="post-form">
+                {% csrf_token %}
+                {% include "accounts/form_errors.html" %}
+                <h3 class="login" style="letter-spacing:-1px;">LOG IN</h3>
+                <hr>
+                
+                <div class="form-group">
+                    <p style="text-align: left; font-size:15px; color:#666">
+                        <label for="username">USERNAME</label>
+                    </p>
+                    <input type="text" class="form-control size" name="username" id="username"
+                           value="{{ form.username.value|default_if_none:'' }}" placeholder="아이디">
+                </div>
+                
+                <div class="form-group">
+                    <p style="text-align: left; font-size:15px; color:#666">
+                        <label for="password">Password</label>
+                    </p>
+                    <input type="password" class="form-control size" name="password" id="password"
+                       value="{{ form.password.value|default_if_none:'' }}" placeholder="비밀번호">
+                </div> 
+                <br/>
+                <button type="submit" class="btn btn-outline-primary">LOG IN</button>
+            </form>
+            
+            <hr>
+            <p class="find"><span>아직 회원이 아니세요?  <a href="{% url 'accounts:signup' %}">Go to SIGN UP!</a></span>
+        </div>
+        </div>
+        </div>
+    </body>
+</html>

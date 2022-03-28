@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+
+<!-- 홈 -->
+<html lang="ko">
+    <head>
+        {% include 'recipe/header.html' %}
+    </head>
+
+    <body>
+        <!--네비바-->
+        {% include 'recipe/navbar.html' %}
+        
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url({% static 'recipe/images/post-bg.jpg' %})">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>레시피 작성하기</h1>
+                            <span class="meta">
+                                레시피를 공유해보세요!
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <h2>Post your Recipe</h2>
+                    <hr/>
+                    <form method='post' enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <table>
+                            {{ form }}
+                        </table>
+
+                        <button type='submit' class='btn btn-primary float-right'>Submit</button>
+                    </form>
+                </div>
+            </div>
+		</div>
+        <!-- Footer-->
+        {% include 'recipe/footer.html' %}
+    </body>
+</html>

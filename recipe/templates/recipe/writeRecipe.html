@@ -1,0 +1,75 @@
+<!--writeRecipe.html-->
+
+<!DOCTYPE html>
+{% load static %}
+
+<!-- 홈 -->
+<html lang="en">
+    <head>
+        {% include 'recipe/header.html' %}
+    </head>
+    <body>
+        <!--네비바-->
+        {% include 'recipe/navbar.html' %}
+        
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url({% static 'recipe/images/post-bg.jpg' %})">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>레시피 올리기</h1>
+                            <span class="meta">
+                                나만의 레시피를 공유하세요!
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+<!--                       <a href="#!"><img class="img-fluid" src="assets/img/post-sample-image.jpg" alt="..." /></a>-->
+                        <form action="write_action.php" method="post">
+                            <table border="1" cellspacing="3" cellpadding="3" width="90%">
+                                <tr width="90%" bgcolor="grey">
+                                    <td width="20%" align="center" style="font:bold">My Recipe</td>
+                                    <td width="50%" bgcolor="grey">
+                                </tr>
+                                <tr width="90%">
+                                    <td align="center">글쓴이</td>
+                                    <td width="50%"><input type="text" name="name" style="width: 95%;"></td>
+                                </tr>
+                                <tr>
+                                    <td align="center">Email</td>
+                                    <td><input type="text" name="email" style="width: 95%;"></td>
+                                </tr>
+                                <tr>
+                                    <td align="center">제목</td>
+                                    <td><input type="text" name="title" style="width: 95%;"></td>
+                                </tr>
+                                <tr>
+                                    <td align="center">내용</td>
+                                    <td><textarea name="content" style="width: 95%;height: 200px;">${board.content}</textarea></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        <input type="submit" value="글작성">
+                                        <input type="button" value="글목록" onclick="window.location='/getListBoard.do'">
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Footer-->
+        {% include 'recipe/footer.html' %}
+    </body>
+</html>

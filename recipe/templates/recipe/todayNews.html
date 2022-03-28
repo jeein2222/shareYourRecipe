@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+
+<!-- 홈 -->
+<html lang="en">
+    <head>
+        {% include 'recipe/header.html' %}
+    </head>
+    <body>
+        <!--네비바-->
+        {% include 'recipe/navbar.html' %}
+
+        <!-- Page Header-->
+            <header class="masthead" style="background-image: url({% static 'recipe/images/post-bg.jpg' %})">
+                <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>오늘의 식품뉴스</h1>
+                            <span class="meta">
+                                다양한 식품 뉴스를 제공합니다!
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+						
+						<p style="color:black;font-size:24px;font-weight:bold;text-shadow:3px 4px 5px LightGreen;">
+                            🍎생활 속 농식품🥦
+                        </p>
+                        
+                        <iframe width="600" height="600"
+		    src="https://post.naver.com/my/series/detail.naver?seriesNo=475401&memberNo=38168656&prevVolumeNo=16873106" 
+								name="news1" id="news1" frameborder="1" scrolling="yes" align="left">
+							이 브라우저는 iframe을 지원하지 않습니다</iframe>
+						
+							
+						<p style="color:white">
+							hello nice to meet you
+						</p>
+						
+						
+						<p style="color:black;font-size:24px;font-weight:bold;text-shadow:3px 4px 5px Gold;">
+                            🍓다양한 식품 정보🍌
+                        </p>
+						 <iframe width="600" height="600"
+		    src="https://post.naver.com/my/series/detail.naver?seriesNo=491467&memberNo=43457750&prevVolumeNo=32348076" 
+								name="news2" id="news2" frameborder="1" scrolling="yes" align="left">
+							이 브라우저는 iframe을 지원하지 않습니다</iframe>
+                        
+                        <p style="color:white">
+							hello nice to meet you
+						</p>
+                        
+                        <p style="color:black;font-size:24px;font-weight:bold;text-shadow:3px 4px 5px Gold;">
+                            🍏먹거리 뉴스🍅
+                        </p>
+						 <iframe width="600" height="600"
+		    src="https://post.naver.com/my/series/detail.naver?seriesNo=383141&memberNo=35869883&prevVolumeNo=32642866" 
+								name="news2" id="news2" frameborder="1" scrolling="yes" align="left">
+							이 브라우저는 iframe을 지원하지 않습니다</iframe>
+						
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Footer-->
+        {% include 'recipe/footer.html' %}
+    </body>
+</html>

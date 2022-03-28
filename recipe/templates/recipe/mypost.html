@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+
+<!-- 홈 -->
+<html lang="en">
+    <head>
+        {% include 'recipe/header.html' %}
+    </head>
+    <body>
+        <!--네비바-->
+        {% include 'recipe/navbar.html' %}
+        
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url({% static 'recipe/images/post-bg.jpg' %})">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>나의 레시피</h1>
+                    
+                            <span class="meta">
+                                작성한 레시피를 확인하세요!
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        
+						<!-- 내용 -->
+						
+						
+						
+						
+						
+						
+						
+						
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- Footer-->
+        <!--네비바-->
+        {% include 'recipe/footer.html' %}
+    </body>
+</html>

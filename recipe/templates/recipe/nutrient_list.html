@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+
+<!-- 홈 -->
+<html lang="en">
+    <head>
+        {% include 'recipe/header.html' %}
+    </head>
+    <body>
+        <!--네비바-->
+        {% include 'recipe/navbar.html' %}
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url({% static 'recipe/images/post-bg.jpg' %})">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>식품 영양 정보 검색</h1>
+                            <span class="meta">
+                                식약처의 식품영양성분 데이터베이스입니다.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <!-- <div class="container px-4 px-lg-5"> -->
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-5 col-lg-8 col-xl-10">
+                       
+						<form action="" method="get">
+  							검색할 식품명🔍 : <input type="text" name="q" value="{{q}}" onfocus="this.value=''">
+  							<input type="submit" value="검색">
+						</form>
+                        <p>
+                            
+                        </p>
+                        <style type="text/css">
+                            table{font-size:10pt;}
+                        </style>
+						<table class="table table-bordered table-hover">
+                            <tbody>
+                                <tr>
+                                <th noWrap>식품명</th>
+                                <th noWrap>대분류</th>
+                                <th noWrap>소분류</th>
+                                <th noWrap>1회제공량</th>
+                                <th noWrap>열량(kcal)</th>
+                                <th noWrap>단백질(g)</th>
+                                <th noWrap>지방(g)</th>
+                                <th noWrap>탄수화물(g)</th>
+                                <th noWrap>당류(g)</th>
+                                <th noWrap>칼슘(mg)</th>
+                                <th noWrap>칼륨(mg)</th>
+                                <th noWrap>나트륨(mg)</th>
+                                </tr>
+                                {% for nutrient in nutrient_list %}
+                                <tr>
+                                    <td>{{nutrient.fname}}</td>
+                                    <td>{{nutrient.cl1}}</td>
+                                    <td>{{nutrient.cl2}}</td>
+                                    <td>{{nutrient.svs}}</td>
+                                    <td>{{nutrient.kcal}}</td>
+                                    <td>{{nutrient.protein_g}}</td>
+                                    <td>{{nutrient.fat_g}}</td>
+                                    <td>{{nutrient.carbo_g}}</td>
+                                    <td>{{nutrient.sugar_g}}</td>
+                                    <td>{{nutrient.calc_mg}}</td>
+                                    <td>{{nutrient.pota_mg}}</td>
+                                    <td>{{nutrient.salt_mg}}</td>
+                                    
+                                </tr>
+                               
+                                {% endfor %}
+                                </tbody>
+                        </table>
+					
+                    </div>
+                </div>
+            <!-- </div> -->
+        </article>
+
+        <!-- Footer-->
+        {% include 'recipe/footer.html' %}
+    </body>
+</html>
